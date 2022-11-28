@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hackap</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div   class="loginbox">
+              <form  id="contactForm">
+      <img src="delivery-truck.png" alt="" class="avatar">
+    <strong><h1>LOGIN DETAILS</h1></strong>
+            <div class="inputBox">
+                <input type="text" id="name" placeholder="Your name...." />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="emailid" placeholder="Your Email....." />
+            </div>
+
+            <div class="inputBox">
+                <textarea id="msgContent" cols="40" rows="2" placeholder="Message"></textarea>
+            </div>
+
+            <div  onclick="window.location.href = 'map.html';" class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+</body>
+
+</html>

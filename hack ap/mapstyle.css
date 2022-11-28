@@ -1,0 +1,28 @@
+body{
+  margin: 0;
+  padding:0;
+  background:url(background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+height: 100vh;
+font-family: sans-serif;
+}
+.avatarbox{
+width: 400px;
+height:400px;
+background-color: transparent;
+bottom:10%;
+left: 50%;
+position: relative;
+transform: translate(-50%,-50%);
+box-sizing: border-box;
+padding: 90px 30px;
+}
+.avatar {
+width: 100px;
+height: 100px;
+border-radius: 80%;
+position: absolute;
+top: -50px;
+left: calc(25%,-50px);
+}
