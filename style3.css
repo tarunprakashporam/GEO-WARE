@@ -1,0 +1,122 @@
+body{
+  background-color:#1D1227;
+}
+h1 {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+text-align: center;
+}
+h2{
+  text-align: center;
+    color: #B2ADB4;
+}
+p{
+      color: #B2ADB4;
+}
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #1D1227;
+  padding: 20px;
+  border-radius: 10px;
+border: 10px solid green;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #B2ADB4;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="time"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  display: block;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+.slot-booked {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 24px;
+  color: #B2ADB4;
+}
+/* .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  z-index: 9999;
+} */
+.line {
+  height: 2px;
+  background-color: #000;
+}
+.scroll {
+  overflow: hidden;
+}
+.scrolling-text {
+  margin-top: 60px;
+  padding: 20px;
+  height: 80px;
+  overflow: hidden;
+  animation: scroll 15s linear infinite;
+}
+.scrolling-text p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 18px;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+button {
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+.dilverypng {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center top;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+
+  <title> GEO_WARE </title>
+</head>
+
+<body>
+
+  <h1 class="title">GEO WARE</h1>
+  <h2 class = "subtitle">Dynamic Geotagging for Warehouse Management</h2>
+  <!-- User registration form -->
+  <p id="registration-message"></p>
+
+
+  <section class="registration">
+
+    <form id="registration-form">
+     <h3>Registration-Form</h3>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Register</button>
+    </form>
+      <img src="delivery-truck.png" alt="" class="avatar">
+
+    <form id="login-form">
+       <h3>Login-Form</h3>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit" id="dashboard-btn">Login</button>
+
+    </form>
+    <!-- User login form -->
+
+  </section>
+  <footer>
+    <p>&copy;GEO-WARE. No rights are reserved you can use it.</p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+  <script src="./firebase.js"></script>
+</body>
+
+</html>

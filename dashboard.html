@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.3.4/leaflet-routing-machine.css" integrity="sha512-v+TWg8fj7VXZqJ3q7V+dQLjPYYoPOtTsdwPjhALixpJEG+1WPhON1XJtxhBfBYtIvz8c+JyKx0f+asDpy0GmMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+	<div id="mapid" style="height: 500px;"></div>
+
+	<!-- Leaflet JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.3.4/leaflet-routing-machine.js" integrity="sha512-JhDntJiFEl2zDW9shcetTKmnzdcvY8yk+vWVJhTtLAL0pCRMIIL8Ig+vOZfXm0LRzYewmq0tbeIcV/GRKnEnGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script>
+		// Initialize the map
+		var mymap = L.map('mapid').setView([0, 0], 13);
+
+		// Add a tile layer
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 19,
+			attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+		}).addTo(mymap);
+
+		// Define the locations
+		var locations = [
+			{
+				lat: 17.7333359,
+				lng: 83.3047146,
+				name: "Visakhapatnam",
+				amount: "20%",
+				phone: "9392472282"
+			},
+			{
+				lat: 22.552631,
+				lng: 88.3278176,
+				name: "Kolkata",
+				amount: "30%",
+				phone: "9392472282"
+			},
+			{
+				lat: 21.2078805,
+				lng: 78.8028326,
+				name: "Maharashtra",
+				amount: "10%",
+				phone: "9392472282"
+			},
+			{
+				lat: 12.9785948,
+				lng: 77.6408543,
+				name: "Bengaluru",
+				amount: "70%",
+				phone: "9392472282"
+			},
+			{
+				lat: 23.0402256,
+				lng: 72.5048497,
+				name: "Ahmedabad",
+				amount: "60%",
+				phone: "9392472282"
+			}
+		];
+
+
+		// Get current location
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var lat = position.coords.latitude;
+				var lng = position.coords.longitude;
+
+				// Set the map view to current location
+				mymap.setView([lat, lng], 13);
+
+				// Find the nearest location
+				// Find the nearest location
+		var nearestLocation;
+		var nearestDistance = Infinity;
+		for (var i = 0; i < locations.length; i++) {
+		    var location = locations[i];
+		    var distance = Math.sqrt(Math.pow(location.lat - lat, 2) + Math.pow(location.lng - lng, 2));
+		    if (distance < nearestDistance) {
+		        nearestLocation = location;
+		        nearestDistance = distance;
+		    }
+		}
+
+		// Add a marker to the nearest location
+		var marker = L.marker([nearestLocation.lat, nearestLocation.lng]).addTo(mymap);
+
+		// Add a popup to the marker
+		marker.bindPopup("<b>Nearest Location: " + nearestLocation.name + "</b><br><a href='available.html'>Click here for more info</a><br>Amount Remaining: " + nearestLocation.amount + "<br>Phone: " + nearestLocation.phone).openPopup();
+
+		// Update the HTML element with the details of the nearest lamount
+		var detailsElement = document.getElementById("nearest-location-details");
+		detailsElement.innerHTML = "<p>Name: " + nearestLocation.name + "</p><p>Amount Remaining: " + nearestLocation.amount + "</p><p>Phone: " + nearestLocation.phone + "</p>";
+
+    		}, function() {
+				alert("Unable to get your current location");
+			});
+		} else {
+			alert("Geolocation is not supported by this browser");
+		}
+
+
+	</script>
+
+	<h1>Details of the nearby warehouse</h1>
+<div class="small-form">
+
+		<div id="nearest-location-details" class="details">
+		</div>
+	<button><a href="available.html">Book The Slot</a></button>
+
+</div>
+</body>
+</html>
